@@ -7,6 +7,16 @@ const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
 
+
+/***
+ * convert(): converts an amount of a certain currency to another currency.
+ * @param {int} amount - The amount you want to convert.
+ * @param {string} to - The currency that will be converted to.
+ * @param {string} from - The original currency that will be converted.
+ * @param {object} response - The API Response.
+ * @param {object} loading - The message while the currency is happening. Appears when internet connexion is bad, mostly.
+ ***/
+
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
 
@@ -33,6 +43,14 @@ const convert = configuration => {
   );
   process.exit(1);
 };
+
+
+/***
+ * cash(): converts an amount of a certain currency to another currency.
+ * @param {int} amount - The amount you want to convert.
+ * @param {string} from - The original currency that will be converted.
+ * @param {string} to - The currency that will be converted to.
+ ***/
 
 const cash = async command => {
   const amount = command.amount;
